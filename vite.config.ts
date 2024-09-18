@@ -4,5 +4,10 @@ import vercel from 'vite-plugin-vercel';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), vercel()],
+	plugins: [react(), vercel()],
+	server: {
+		proxy: {
+			"/api": "https://poke-api-p5qg.vercel.app",
+		}  
+	} ,
 })
