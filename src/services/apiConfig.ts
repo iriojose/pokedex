@@ -11,6 +11,7 @@ interface RequestConfig {
 const createRequest = (method: RequestMethod, bodyData?: object): RequestConfig => {
     const headers = {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': "*"
     };
 
     const config: RequestConfig = {
