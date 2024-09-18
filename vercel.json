@@ -1,6 +1,5 @@
 {
-    "rewrites": [{
-      "source": "/api/(.*)",
-      "destination": "https://poke-api-p5qg.vercel.app/api/$1"
-    }]
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/" }
+    ]
 }

@@ -6,6 +6,7 @@ interface RequestConfig {
     method: RequestMethod;
     headers?: Record<string, string>;
     body?: string;
+    mode: RequestMode
 }
 
 const createRequest = (method: RequestMethod, bodyData?: object): RequestConfig => {
@@ -16,6 +17,7 @@ const createRequest = (method: RequestMethod, bodyData?: object): RequestConfig 
     const config: RequestConfig = {
         method,
         headers,
+        mode: "cors"
     };
 
     if (bodyData) {
@@ -33,12 +35,12 @@ export const apiCommand = <T>(method: RequestMethod) => {
         try {
             const response = await fetch(`${baseUrl}${endpoint}`, config);
             const responseData = (await response.json());
-
+    
             if (!response.ok || (response.status !== 200 && response.status !== 201)) {
                     throw new Error(response.statusText || `API Error on url: ${endpoint}`
                 );
             }
-            
+
             if(responseData.code && responseData.code !== 200) {
                 throw new Error(response.statusText || `API Error on url: ${endpoint}`)
             }
