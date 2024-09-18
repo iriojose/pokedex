@@ -6,7 +6,6 @@ interface RequestConfig {
     method: RequestMethod;
     headers?: Record<string, string>;
     body?: string;
-    mode: RequestMode
 }
 
 const createRequest = (method: RequestMethod, bodyData?: object): RequestConfig => {
@@ -17,7 +16,6 @@ const createRequest = (method: RequestMethod, bodyData?: object): RequestConfig 
     const config: RequestConfig = {
         method,
         headers,
-        mode: "cors"
     };
 
     if (bodyData) {
