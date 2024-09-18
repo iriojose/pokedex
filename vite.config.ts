@@ -5,7 +5,7 @@ import vercel from 'vite-plugin-vercel';
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [react(), vercel()],
-	server: {
+	/* server: {
 		proxy: {
 			"/api": {
 				target: "https://poke-api-p5qg.vercel.app/api/pokemon/",
@@ -13,5 +13,5 @@ export default defineConfig({
         		rewrite: (path) => path.replace(/^\/api/, '')
 			}
 		}
-	}
+	} */
 })
