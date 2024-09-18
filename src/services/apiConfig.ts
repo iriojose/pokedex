@@ -6,18 +6,17 @@ interface RequestConfig {
     method: RequestMethod;
     headers?: Record<string, string>;
     body?: string;
-    mode: RequestMode
 }
 
 const createRequest = (method: RequestMethod, bodyData?: object): RequestConfig => {
     const headers = {
-        'Content-Type': 'application/json'
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
     };
 
     const config: RequestConfig = {
         method,
-        headers,
-        mode: "no-cors"
+        headers
     };
 
     if (bodyData) {
